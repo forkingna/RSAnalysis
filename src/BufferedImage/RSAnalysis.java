@@ -92,8 +92,12 @@ public class RSAnalysis {
 		for(int i=0; i<=3; i++)
 			for(int j=0; j<=3; j++) {
 				int flag = (int)(Math.random()*2);
-				if(flag >= 1)
-					square[i][j] = square[i][j]&0xfe; //非负翻转
+				if(flag >= 1) {
+					if((square[i][j]&0x1) == 0)
+						square[i][j] += 1;
+					else
+						square[i][j] -= 1;
+				}
 			}
 		float b = calculate(square);
 		if(a < b)
@@ -110,7 +114,7 @@ public class RSAnalysis {
 			for(int j=0; j<=3; j++) {
 				int flag = (int)(Math.random()*2);
 				if(flag >= 1) {
-					if((square[i][j]&0x1) == 0) //非正翻转
+					if((square[i][j]&0x1) == 0)
 						square[i][j] -= 1;
 					else
 						square[i][j] += 1;
