@@ -18,6 +18,14 @@ public class BufferedImageTest {
 		BufferedImage bimg = updatePic(R, 'R', path);
 		createNewPic(bimg, newPath1);
 		getSecret(57086, 'R', newPath1, newPath2); //57086为秘密信息的字节数
+		RSAnalysis RS1 = new RSAnalysis("G:\\rose.jpg");
+		System.out.println("原图开始分析");
+		RS1.analyse();
+		System.out.println("原图分析完毕\n\n");
+		RSAnalysis RS2 = new RSAnalysis("G:\\informationHiding.jpg");
+		System.out.println("新图开始分析");
+		RS2.analyse();
+		System.out.println("新图分析完毕\n");
     }
 	
 	public static void getSecret(int size, int channelCode, String path, String newPath) {
